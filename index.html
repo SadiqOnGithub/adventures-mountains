@@ -1,12 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parallax Effect</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <h1>Use bigger screen or Desktop to see Parallax Scrolling Effects</h1>
+      </div>
+    </section>
+    <section class="zoom">
+      <img src="assets/mountain1.png" id="layer1" alt="" />
+      <img src="assets/mountain2.png" id="layer2" alt="" />
+      <img src="assets/text.png" id="text" alt="" />
+    </section>
+    <section class="content">
+      <h2>Simple Backgroud Parallax</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam
+        eveniet quibusdam voluptate enim, commodi dignissimos facilis
+        consectetur similique, repellendus perferendis dicta, praesentium porro
+        beatae assumenda necessitatibus quam neque laborum aspernatur nostrum
+        suscipit nobis. Quas rerum tempora molestias atque deleniti ipsum id.
+        Est ea autem laudantium tempore dicta sed provident, consequuntur
+        accusamus sapiente. Culpa tempore et illum fugit deleniti. Quidem
+        excepturi dolores culpa, consequatur nostrum, sint recusandae odio
+        explicabo incidunt necessitatibus sit quo aliquid, autem hic doloribus
+        rerum? Aspernatur, nobis maiores. Ullam ea laborum quod exercitationem
+        rem saepe mollitia veritatis nemo aperiam eum. Saepe repellat quia
+        placeat quas est officia?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga numquam
+        eveniet quibusdam voluptate enim, commodi dignissimos facilis
+        consectetur similique, repellendus perferendis dicta, praesentium porro
+        beatae assumenda necessitatibus quam neque laborum aspernatur nostrum
+        suscipit nobis. Quas rerum tempora molestias atque deleniti ipsum id.
+        Est ea autem laudantium tempore dicta sed provident, consequuntur
+        accusamus sapiente. Culpa tempore et illum fugit deleniti. Quidem
+        excepturi dolores culpa, consequatur nostrum, sint recusandae odio
+        explicabo incidunt necessitatibus sit quo aliquid, autem hic doloribus
+        rerum? Aspernatur, nobis maiores. Ullam ea laborum quod exercitationem
+        rem saepe mollitia veritatis nemo aperiam eum. Saepe repellat quia
+        placeat quas est officia?
+      </p>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem totam
+        repellendus, eaque quia voluptatibus quae voluptatem, quibusdam
+        veritatis, laudantium sint odio sit dicta quasi! Magni voluptatibus
+        officia facilis hic, incidunt vitae? Ipsum, mollitia! Culpa odio ex
+        ullam a sequi, porro amet, dolorem quisquam alias tempore, neque numquam
+        inventore corporis recusandae! Nobis vel officiis minima dolorum
+        molestiae vero non reiciendis nesciunt! Dignissimos illum autem tempora,
+        fugit obcaecati, officia culpa dolorem eos ipsam possimus architecto.
+        At, maiores, laborum, iure assumenda reiciendis nulla eligendi
+        consectetur eos recusandae laudantium voluptate exercitationem.
+        Perferendis, quos alias? Consequuntur dignissimos sed nihil quia ut
+        delectus, eos quam earum autem laudantium? Soluta facere mollitia ipsa
+        ipsum ea maxime incidunt ex adipisci recusandae, ducimus doloremque
+        autem quia dicta fugit, ad praesentium consectetur nostrum similique
+        corporis et minima! Vero, debitis eaque iure veritatis perspiciatis
+        nesciunt placeat, eos natus voluptates odit esse ex, ducimus quod
+        eligendi officia numquam nostrum rem? Debitis tempora sapiente
+        perferendis reiciendis architecto dolorum deserunt assumenda
+        voluptatibus aliquam corporis officiis dolorem esse maxime nobis rem
+        non, quo, labore perspiciatis ut nihil officia. Quos, quia? Ex, eius
+        aliquid. Voluptas impedit excepturi, alias aut enim eum, repudiandae
+        itaque similique expedita, hic tempore quisquam assumenda rerum ullam.
+        Quos optio a doloremque quas.
+      </p>
+    </section>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .container {
+        display: none;
+        width: 95%;
+        text-align: center;
+        margin-inline: auto;
+        border: 4px solid hsl(0, 100%, 50%);
+        margin-top: 3em;
+      }
+
+      .zoom {
+        position: relative;
+        background: url(assets/bg.jpg);
+        background-size: cover;
+        height: 1000px;
+        /* height: max(1000px, 110vh); */
+        width: 100%;
+        overflow: hidden;
+        z-index: -1;
+      }
+
+      .zoom::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 200px;
+        z-index: 1000;
+        background-color: #f00;
+        background: linear-gradient(transparent, #fff);
+      }
+
+      .zoom #layer1 {
+        position: absolute;
+        left: 55%;
+        transform: translateX(-60%);
+        z-index: 9;
+      }
+      .zoom #layer2 {
+        position: absolute;
+        right: 55%;
+        transform: translateX(60%);
+        z-index: 10;
+      }
+      .zoom #text {
+        position: absolute;
+        top: 450px;
+        width: 100%;
+      }
+
+      .content {
+        width: 95%;
+        max-width: 1140px;
+        margin-inline: auto;
+        z-index: 9000;
+      }
+      .content h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: calc(2rem + 2vw);
+        text-align: center;
+        margin-block-start: 2.5em;
+        margin-block-end: 0.67em;
+      }
+      .content p {
+        font-size: 1.4rem;
+        max-width: 90ch;
+        margin-inline: auto;
+        line-height: 1.5;
+        text-align: justify;
+      }
+
+      @media (max-width: 1000px) {
+        .container {
+          display: block;
+        }
+        .zoom {
+          display: none;
+        }
+      }
+    </style>
+    <script>
+      const layer1 = document.getElementById("layer1");
+      const layer2 = document.getElementById("layer2");
+      const text = document.getElementById("text");
+      const container = document.querySelector(".container");
+      let borderHue = 0;
+      function onScroll(e) {
+        let offset = window.pageYOffset;
+        layer1.width = 1400 + offset * 6;
+        layer2.width = 1400 + offset * 10;
+        layer2.style.right = 55 - offset / 30 + "%";
+        text.style.top = 450 - offset / 1 + "px";
+      }
+      document.addEventListener("scroll", onScroll);
+
+      function borderChange() {
+        container.style.borderColor = `hsl(${borderHue+=10}, 100%, 50%)`;
+      }
+
+      if (window.innerWidth < 1001) {
+        setInterval(() => {
+        borderChange();
+      }, 300);
+      }
+      
+    </script>
+  </body>
 </html>
