@@ -169,23 +169,31 @@
       let borderHue = 0;
       function onScroll(e) {
         let offset = window.pageYOffset;
-        layer1.width = 1400 + offset * 6;
-        layer2.width = 1400 + offset * 10;
-        layer2.style.right = 55 - offset / 30 + "%";
-        text.style.top = 450 - offset / 1 + "px";
+        requestAnimationFrame(() => {
+          layer1.width = 1400 + offset * 6;
+        });
+        requestAnimationFrame(() => {
+          layer2.width = 1400 + offset * 10;
+        });
+        requestAnimationFrame(() => {
+          layer2.style.right = 55 - offset / 30 + "%";
+        });
+        requestAnimationFrame(() => {
+          text.style.top = 450 - offset / 1 + "px";
+        });
+
       }
       document.addEventListener("scroll", onScroll);
 
       function borderChange() {
-        container.style.borderColor = `hsl(${borderHue+=10}, 100%, 50%)`;
+        container.style.borderColor = `hsl(${(borderHue += 10)}, 100%, 50%)`;
       }
 
       if (window.innerWidth < 1001) {
         setInterval(() => {
-        borderChange();
-      }, 300);
+          borderChange();
+        }, 300);
       }
-      
     </script>
   </body>
 </html>
