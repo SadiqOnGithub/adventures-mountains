@@ -114,16 +114,16 @@
 
       .zoom #layer1 {
         position: absolute;
-        top: -15%;
         left: 60%;
+        bottom: -07%;
         width: 100%;
         transform: translateX(-60%);
         z-index: 9;
       }
       .zoom #layer2 {
         position: absolute;
-        top: -15%;
         right: 60%;
+        bottom: -07%;
         width: 100%;
         transform: translateX(60%);
         z-index: 10;
@@ -174,11 +174,11 @@
         let offset = window.pageYOffset;
         requestAnimationFrame(() => {
           layer1.style.width = (100 + offset/1.25) + "%";
-          // layer1.width = 1400 + offset * 6;
+          layer1.style.bottom = (-7 -offset/1.2) + "%";
         });
         requestAnimationFrame(() => {
           layer2.style.width = (100 + offset/.9) + "%";
-          // layer2.width = 1400 + offset * 10;
+          layer2.style.bottom = (-7 -offset/.8) + "%";
         });
         requestAnimationFrame(() => {
           text.style.top = 60 - offset / 2 + "%";
